@@ -199,7 +199,7 @@
         <option value="Indústria">🏭 Indústria & Materiais</option>
         <option value="Cripto">🪙 Cripto-Stocks</option>
       </select>
-      <input id="pesquisa" oninput="renderizar()" type="text" placeholder="🔍 Pesquisar ticker ou empresa...">
+      <input id="pesquisa" oninput="renderizar()" type="text" placeholder="🔍 Pesquisar ticker ou empresa (ex: BYD, Nike)...">
     </div>
 
     <div class="filtros">
@@ -223,6 +223,7 @@
       { t: "VUAA", n: "Vanguard S&P 500", s: "ETF", tipo: "ACUMULATIVO", p: "€102.80", pe: "25.0", dec: "COMPRAR", av: "PREÇO JUSTO", pot: "MUITO POTENCIAL", nota: "As 500 maiores empresas dos EUA." },
       { t: "EQQQ", n: "Invesco Nasdaq-100", s: "ETF", tipo: "ACUMULATIVO", p: "€450.20", pe: "28.5", dec: "COMPRAR", av: "BARATO", pot: "MUITO POTENCIAL", nota: "Foco total nas 100 maiores tecnológicas dos EUA." },
       { t: "VHYL", n: "Vanguard High Dividend Yield", s: "ETF", tipo: "DIVIDENDOS", p: "€64.50", pe: "15.2", dec: "COMPRAR", av: "BARATO", pot: "BOM POTENCIAL", nota: "ETF global focado em empresas pagadoras de dividendos." },
+      { t: "BYDDY", n: "BYD Company Ltd.", s: "Consumo", tipo: "ACUMULATIVO", p: "$28.50", pe: "18.5", dec: "COMPRAR", av: "BARATO", pot: "MUITO POTENCIAL", nota: "Líder global em veículos elétricos e baterias com forte integração vertical." },
       { t: "NKE", n: "Nike Inc.", s: "Consumo", tipo: "DIVIDENDOS", p: "$78.20", pe: "24.5", dec: "AGUARDAR", av: "BARATO", pot: "BOM POTENCIAL", nota: "Líder global em calçado e vestuário desportivo; reestruturação em curso." },
       { t: "MP", n: "MP Materials Corp.", s: "Indústria", tipo: "ACUMULATIVO", p: "$18.50", pe: "28.0", dec: "AGUARDAR", av: "BARATO", pot: "MUITO POTENCIAL", nota: "Principal produtor ocidental de terras raras e ímanes permanentes." },
       { t: "GLW", n: "Corning Inc.", s: "Indústria", tipo: "DIVIDENDOS", p: "$45.80", pe: "21.0", dec: "COMPRAR", av: "BARATO", pot: "MUITO POTENCIAL", nota: "Fibra ótica e vidro avançado para infraestruturas de dados." },
@@ -236,7 +237,7 @@
       { t: "SNPS", n: "Synopsys Inc.", s: "Tecnologia", tipo: "ACUMULATIVO", p: "$520.00", pe: "38.0", dec: "COMPRAR", av: "PREÇO JUSTO", pot: "MUITO POTENCIAL", nota: "Software de design eletrónico (EDA)." },
       { t: "NXPI", n: "NXP Semiconductors", s: "Tecnologia", tipo: "DIVIDENDOS", p: "$215.00", pe: "17.0", dec: "COMPRAR", av: "BARATO", pot: "BOM POTENCIAL", nota: "Semicondutores automotivos e industriais." },
       { t: "ANET", n: "Arista Networks", s: "Tecnologia", tipo: "ACUMULATIVO", p: "$390.00", pe: "39.0", dec: "COMPRAR", av: "PREÇO JUSTO", pot: "MUITO POTENCIAL", nota: "Switches de rede de alta velocidade para IA." },
-      { t: "APP", n: "AppLovin Corp.", s: "Tecnologia", tipo: "ACUMULATIVO", p: "$285.00", pe: "34.0", dec: "COMPRAR", av: "PREÇO JUSTO", pot: "MUITO POTENCIAL", nota: "Monetização mobile potenciada por IA." },
+      { t: "APP", n: "AppLovin Corp.", s: "Tecnologia", tipo: "ACUMULATIVO", p: "$285.00", pe: "34.0", dec: "COMPRAR", av: "PREÇO JUSTO", pot: "MUITO POTENCIAL", nota: "Monotização mobile potenciada por IA." },
       { t: "LITE", n: "Lumentum Holdings", s: "Tecnologia", tipo: "ACUMULATIVO", p: "$68.20", pe: "29.0", dec: "COMPRAR", av: "BARATO", pot: "MUITO POTENCIAL", nota: "Componentes óticos para redes e Data Centers." },
       { t: "CRDO", n: "Credo Technology", s: "Tecnologia", tipo: "ACUMULATIVO", p: "$38.50", pe: "45.0", dec: "AGUARDAR", av: "CARO", pot: "MUITO POTENCIAL", nota: "Conectividade de alta velocidade para centros de dados." },
       { t: "NOK", n: "Nokia Oyj", s: "Tecnologia", tipo: "DIVIDENDOS", p: "€4.10", pe: "14.0", dec: "AGUARDAR", av: "MUITO BARATO", pot: "POUCO", nota: "Equipamentos de rede 5G." },
@@ -358,7 +359,10 @@
       document.getElementById("contador").innerText = `${min}:${seg}`;
     }, 1000);
 
-    renderizar();
+    // Executa a renderização assim que a página estiver carregada
+    window.onload = function() {
+      renderizar();
+    };
   </script>
 </body>
 </html>
